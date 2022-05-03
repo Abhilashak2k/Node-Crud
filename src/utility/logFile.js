@@ -25,11 +25,10 @@ class LogFileUtility {
                 if(!dateMatches){
                     //console.log(startPosition);
                 }
-                else if(dateMatches && dateMatches.includes(toSearchStringStart)){
+                else if(dateMatches.includes(toSearchStringStart)){
                     resolve(buffer.toString());
-                }else if(dateMatches) {
+                }else  {
                     const midPosition =  Math.round((endPosition + startPosition)/2);
-                    console.log(midPosition);
                      if(new Date(dateMatches[0]) < dateParam){
                         resolve(this.binarySearchInFile(toSearchStringStart, toSearchStringEnd, midPosition, endPosition, searchStringRegex));
                      }else{
